@@ -4,7 +4,7 @@ import Path from "./Path";
 
 type Next = () => void
 
-type routeCallback = (req: Request, res: Respond, next?: Next) => void
+type routeCallback = (req: Request, res: Respond, next: Next) => void
 
 interface RouteHandler {
   path: string,
@@ -19,7 +19,7 @@ interface RouterHandler {
 
 interface Middleware {
   path: string | null,
-  callback: (req: Request, res: Respond, next?: Next) => void
+  callback: (req: Request, res: Respond, next: Next) => void
 }
 
 export default class Router {
@@ -95,7 +95,7 @@ export default class Router {
     }
   }
 
-  handle(req: Request, res: Respond, nextHandler?: Next) {
+  handle(req: Request, res: Respond, nextHandler: Next = () => {}) {
     let middlewareIndex = 0;
     let routeIndex = 0;
     let routerIndex = 0;
@@ -141,7 +141,7 @@ export default class Router {
             req.parseParams(path, currentUrl)
           }
 
-          return callback(req, res);
+          return callback(req, res, next);
         }
 
         return next();
