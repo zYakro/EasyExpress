@@ -46,6 +46,14 @@ router.use('/sayBye', router2)
 
 app.use("/say", router)
 
+// Add middlewares
+
+app.use("/sayHi", (req, res, next) => {
+  console.log('This is a middleware!')
+  
+  next()
+})
+
 // Run your app on a given port
 app.listen(4221, () => {
   console.log("Server Running")
