@@ -1,0 +1,20 @@
+{
+  "name": "easyexpress",
+  "version": "1.0.0",
+  "description": "A project to practice HTTP servers similar to the express.js package",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "bun run ./example/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mime-db": "^1.53.0",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/mime-db": "^1.43.5",
+    "@types/node": "^22.9.1"
+  }
+}
